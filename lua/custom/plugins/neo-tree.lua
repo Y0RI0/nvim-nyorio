@@ -20,6 +20,7 @@ return {
           ['\\'] = 'close_window',
         },
       },
+      -- This is custom
       filtered_items = {
         visible = true,
         show_hidden_count = true,
