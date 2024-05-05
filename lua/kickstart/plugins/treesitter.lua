@@ -17,7 +17,8 @@ return {
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
+      -- Register additional filetypes to existing language parsers
+      --      require('nvim-treesitter.language').register('zsh', 'localrc')
       -- Prefer git instead of curl in order to improve connectivity in some environments
       require('nvim-treesitter.install').prefer_git = true
       ---@diagnostic disable-next-line: missing-fields

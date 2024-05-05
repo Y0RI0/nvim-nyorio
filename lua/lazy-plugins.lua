@@ -31,6 +31,7 @@ require('lazy').setup({
   -- custom plugins
   require 'custom/plugins/colorscheme',
   require 'custom/plugins/neo-tree',
+  require 'custom/plugins/comment',
 
   -- kickstart, pre-included plugins
   require 'kickstart/plugins/gitsigns',
