@@ -6,6 +6,9 @@
 -- disable built in tree view
 --vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
 
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
 -- Make line numbers default
 vim.opt.number = true
 -- vim.opt.relativenumber = true

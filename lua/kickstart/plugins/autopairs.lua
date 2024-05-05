@@ -1,6 +1,8 @@
 -- autopairs
 -- https://github.com/windwp/nvim-autopairs
 
+-- literally a plugin that does those automatic pairs
+-- like two {} or () or [] etc
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
