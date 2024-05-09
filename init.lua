@@ -54,5 +54,8 @@ require 'lazy-plugins'
 -- [[ Some nvim startup functions ]]
 require 'functions'
 
+-- [[ Terraform configuration ]]
+require 'terraform'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

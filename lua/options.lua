@@ -26,6 +26,10 @@ vim.opt.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- cursorline and column to show placement of cursor
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
 -- Save undo history
 vim.opt.undofile = true
 
