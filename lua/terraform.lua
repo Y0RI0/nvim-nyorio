@@ -11,10 +11,10 @@ vim.cmd [[let g:terraform_fmt_on_save=1]]
 vim.cmd [[let g:terraform_align=1]]
 
 -- Keymaps for running terragrunt from inside nvim
-vim.keymap.set('n', '<leader>ti', ':!terragrunt init<CR>')
-vim.keymap.set('n', '<leader>tv', ':!terragrunt validate<CR>')
-vim.keymap.set('n', '<leader>tp', ':!terragrunt plan<CR>')
-vim.keymap.set('n', '<leader>taa', ':!terragrunt apply -auto-approve<CR>')
+vim.keymap.set('n', '<leader>tgi', ':!terragrunt init<CR>')
+vim.keymap.set('n', '<leader>tgv', ':!terragrunt validate<CR>')
+vim.keymap.set('n', '<leader>tgp', ':!terragrunt plan<CR>')
+vim.keymap.set('n', '<leader>tga', ':!terragrunt apply -auto-approve<CR>')
 
 -- Require terraform language and tflint in lspconfig
 local lspconfig = require 'lspconfig'
