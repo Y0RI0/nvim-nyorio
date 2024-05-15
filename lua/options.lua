@@ -4,7 +4,7 @@
 --  For more options, you can see `:help option-list`
 
 -- disable built in tree view
---vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
+-- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
 -- https://neovim.io/doc/user/spell.html
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
@@ -55,7 +55,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'

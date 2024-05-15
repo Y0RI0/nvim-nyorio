@@ -15,6 +15,7 @@ vim.keymap.set('n', '<leader>tgi', ':!terragrunt init<CR>')
 vim.keymap.set('n', '<leader>tgv', ':!terragrunt validate<CR>')
 vim.keymap.set('n', '<leader>tgp', ':!terragrunt plan<CR>')
 vim.keymap.set('n', '<leader>tga', ':!terragrunt apply -auto-approve<CR>')
+vim.keymap.set('n', '<leader>tgf', ':!terragrunt hclfmt')
 
 -- Require terraform language and tflint in lspconfig
 local lspconfig = require 'lspconfig'

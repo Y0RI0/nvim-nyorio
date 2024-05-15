@@ -33,6 +33,7 @@ require('lazy').setup({
   require 'custom/plugins/neo-tree',
   require 'custom/plugins/comment',
   require 'custom/plugins/glow',
+  require 'custom/plugins/vis-multiline',
 
   -- kickstart, pre-included plugins
   require 'kickstart/plugins/gitsigns',

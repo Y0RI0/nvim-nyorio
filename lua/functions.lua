@@ -6,7 +6,7 @@
 local function normal_ass_dd()
   return '"_dd'
 end
-vim.keymap.set('n', 'dd', normal_ass_dd, { noremap = true, expr = true })
+vim.keymap.set('n', 'dd', normal_ass_dd, { noremap = true, expr = true, desc = '[dd]elete shit like a normal person' })
 
 -- This function originally would be for unbuffered empty line deletion
 -- but I simply wanted it to be able to do visual deletions without buffering them
@@ -22,4 +22,19 @@ local function normal_ass_visual_d()
   end
   -- return 'd'
 end
-vim.keymap.set('v', 'd', normal_ass_visual_d, { noremap = true, expr = true })
+vim.keymap.set('v', 'd', normal_ass_visual_d, { noremap = true, expr = true, desc = '[v]isually [d]elete shit like a normal person' })
+
+-- This is to restore the original functionality of cut-on-delete that comes with
+-- vim, but mapped to a different keymap
+local function cut_delete()
+  return 'dd'
+end
+vim.keymap.set('n', 'cd', cut_delete, { noremap = true, expr = true, desc = '[c]ut [d]elete' })
+
+local function visual_cut_delete()
+  local l, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  for _ in ipairs(vim.api.nvim_buf_get_lines(0, l - 1, l, true)) do
+    return 'd'
+  end
+end
+vim.keymap.set('v', 'cd', visual_cut_delete, { noremap = true, expr = true, desc = '[v]isual [c]ut [d]elete' })
