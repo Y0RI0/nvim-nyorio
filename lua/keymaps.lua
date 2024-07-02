@@ -14,7 +14,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
---
+
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -48,7 +48,9 @@ vim.keymap.set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current t
 vim.keymap.set('n', '<leader>tf', '<cmd>tabn<CR>', { desc = 'Go forward one tab' })
 vim.keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go backward one tab' })
 vim.keymap.set('n', '<leader>tc', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
-
+-- Schmoove to beginning and ends of lines
+vim.keymap.set('n', 'mb', '0', { desc = '[m]ove to the [b]eginning of a line' })
+vim.keymap.set('n', 'me', '$', { desc = '[m]ove to the [e]nd of a line' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

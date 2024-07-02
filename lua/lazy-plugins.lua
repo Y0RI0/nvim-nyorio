@@ -34,6 +34,7 @@ require('lazy').setup({
   require 'custom/plugins/comment',
   require 'custom/plugins/glow',
   require 'custom/plugins/vis-multiline',
+  require 'custom/plugins/obsidian',
 
   -- kickstart, pre-included plugins
   require 'kickstart/plugins/gitsigns',

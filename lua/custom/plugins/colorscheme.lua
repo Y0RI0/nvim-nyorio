@@ -67,7 +67,7 @@ return {
           background = true, -- use background color for virtual text
         },
       }
-      -- require('bamboo').load()
+      require('bamboo').load()
     end,
   },
 }
