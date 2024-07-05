@@ -12,13 +12,6 @@ vim.cmd [[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=jso
 vim.cmd [[let g:terraform_fmt_on_save=1]]
 vim.cmd [[let g:terraform_align=1]]
 
--- Keymaps for running terragrunt from inside nvim
-vim.keymap.set('n', '<leader>tgi', ':!terragrunt init<CR>')
-vim.keymap.set('n', '<leader>tgv', ':!terragrunt validate<CR>')
-vim.keymap.set('n', '<leader>tgp', ':!terragrunt plan<CR>')
-vim.keymap.set('n', '<leader>tga', ':!terragrunt apply -auto-approve<CR>')
-vim.keymap.set('n', '<leader>tgf', ':cd %:p:h | !terragrunt hclfmt<CR>')
-
 -- Require terraform language and tflint in lspconfig
 local lspconfig = require 'lspconfig'
 lspconfig.terraformls.setup {

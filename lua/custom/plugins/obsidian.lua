@@ -59,7 +59,7 @@ return {
     -- dir = "~/vaults/work",
 
     -- Optional, if you keep notes in a specific subdirectory of your vault.
-    -- notes_subdir = 'notes',
+    -- notes_subdir = '.',
 
     -- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
     -- levels defined by "vim.log.levels.*".
@@ -134,8 +134,8 @@ return {
           suffix = suffix .. string.char(math.random(65, 90))
         end
       end
-      -- NOTE: I modified this to put out a prettier timestamp
-      return string.format('%04d-%02d-%02d - ', os.date '%Y', os.date '%m', os.date '%d') .. suffix
+      -- NOTE: I modified this to put out a prettier timestamp, similar to what I actually have in obsidian
+      return string.format('%04d-%02d-%02d-%04d - ', os.date '%Y', os.date '%m', os.date '%d', os.date '%H%M') .. suffix
     end,
 
     -- Optional, customize how note file names are generated given the ID, target directory, and title.
@@ -220,9 +220,9 @@ return {
       -- Not all pickers support all mappings.
       mappings = {
         -- Create a new note from your query.
-        new = '<C-x>',
+        -- new = '<C-x>',
         -- Insert a link to the selected note.
-        insert_link = '<C-l>',
+        -- insert_link = '<C-l>',
       },
     },
 
@@ -318,7 +318,7 @@ return {
       -- The default folder to place images in via `:ObsidianPasteImg`.
       -- If this is a relative path it will be interpreted as relative to the vault root.
       -- You can always override this per image by passing a full path to the command instead of just a filename.
-      img_folder = 'assets/imgs', -- This is the default
+      img_folder = 'media', -- This is the default
       -- A function that determines the text to insert in the note when pasting an image.
       -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
       -- This is the default implementation.

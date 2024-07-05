@@ -75,3 +75,6 @@ vim.opt.expandtab = true
 
 -- Disable swapfiles because laggy asf and causing problems
 vim.opt.swapfile = false
+
+-- This one helps to properly render markdown checkboxes and such
+vim.opt.conceallevel = 1

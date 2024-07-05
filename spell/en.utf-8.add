@@ -47,3 +47,11 @@ keymap
 burstable
 t3
 timestamp
+subdirectory
+workspaces
+struct
+config
+preformatted
+dirs
+atlantis
+filepaths
