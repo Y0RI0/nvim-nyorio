@@ -36,6 +36,7 @@ require('lazy').setup({
   require 'custom/plugins/vis-multiline',
   require 'custom/plugins/obsidian',
   require 'custom/plugins/image',
+  require 'custom/plugins/harpoon',
 
   -- kickstart, pre-included plugins
   require 'kickstart/plugins/gitsigns',

@@ -3,3 +3,4 @@
 -- stuff like that
 
 require 'config/terraform'
+require 'config/harpoon'
