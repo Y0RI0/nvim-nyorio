@@ -26,7 +26,7 @@ return {
     workspaces = {
       {
         name = 'work',
-        path = '~/tomb/md/markdown/work',
+        path = '/home/nyorio/tomb/md/markdown/work',
       },
       --[[       {
 +      name = "no-vault",
