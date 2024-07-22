@@ -6,12 +6,12 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        -- markdown = { 'markdownlint' },
         --   clojure = { "clj-kondo" },
         dockerfile = { 'hadolint' },
         --   inko = { "inko" },
         --   janet = { "janet" },
-        json = { 'jsonlint' },
+        -- json = { 'jsonlint' },
         --   markdown = { "vale" },
         --   rst = { "vale" },
         ruby = { 'ruby' },
