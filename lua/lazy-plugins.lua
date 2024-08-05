@@ -37,6 +37,7 @@ require('lazy').setup({
   require 'custom/plugins/obsidian',
   require 'custom/plugins/image',
   require 'custom/plugins/harpoon',
+  require 'custom/plugins/alpha',
 
   -- oldge vim plugin for syntax
   require 'config/moonscript',
