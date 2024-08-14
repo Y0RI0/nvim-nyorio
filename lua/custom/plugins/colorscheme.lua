@@ -28,10 +28,10 @@ return {
       require('bamboo').setup {
         -- Main options --
         -- NOTE: to use the light theme, set `vim.o.background = 'light'`
-        style = 'multiplex', -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
+        style = 'vulgaris', -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
         toggle_style_key = nil, -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
         toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
-        transparent = false, -- Show/hide background
+        transparent = true, -- Show/hide background
         dim_inactive = false, -- Dim inactive windows/buffers
         term_colors = true, -- Change terminal color as per the selected theme style
         ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden

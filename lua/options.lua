@@ -78,3 +78,7 @@ vim.opt.swapfile = false
 
 -- This one helps to properly render markdown checkboxes and such
 vim.opt.conceallevel = 1
+
+vim.opt.foldcolumn = "1"
+
+-- vim.opt.foldmethod = 'indent'
