@@ -24,3 +24,5 @@ vim.keymap.set('n', '<leader>tc', '<cmd>tabnew %<CR>', { desc = 'Open current bu
 -- Schmoove to beginning and ends of lines
 vim.keymap.set('n', 'mb', '0', { desc = '[m]ove to the [b]eginning of a line' })
 vim.keymap.set('n', 'me', '$', { desc = '[m]ove to the [e]nd of a line' })
+-- Relative line throngler
+vim.keymap.set('n', '<C-L><C-L>', '<cmd>set invrelativenumber<CR>', { desc = 'Throngle relative lines on and off' })
