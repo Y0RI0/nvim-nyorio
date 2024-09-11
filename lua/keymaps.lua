@@ -8,6 +8,7 @@ require 'keymaps/gigachad-keymap'
 require 'keymaps/schmoove-keymap'
 require 'keymaps/mystery-keymap'
 require 'keymaps/terraform-keymap'
+require 'keymaps/undotree'
 
 -- Not quite keymaps, more like functions, autocmds
 require 'keymaps/autocmd'
