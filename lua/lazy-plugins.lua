@@ -39,6 +39,7 @@ require('lazy').setup({
   require 'custom/plugins/harpoon',
   require 'custom/plugins/alpha',
   require 'custom/plugins/undotree',
+  require 'custom/plugins/trouble',
 
   -- oldge vim plugin for syntax
   require 'config/moonscript',

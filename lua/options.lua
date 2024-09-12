@@ -82,4 +82,24 @@ vim.opt.conceallevel = 1
 vim.opt.foldcolumn = '1'
 -- NOTE: These are toggled with 'z' something. V select, then z-f to fold the selection
 
+-- Highlight entire line for errors
+-- Highlight the line number for warnings
+-- Straight from docs this one https://neovim.io/doc/user/diagnostic.html
+vim.diagnostic.config {
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '💡',
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+    },
+    numhl = {
+      [vim.diagnostic.severity.WARN] = 'WarningMsg',
+    },
+  },
+}
+
 -- vim.opt.foldmethod = 'indent'
