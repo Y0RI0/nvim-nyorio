@@ -80,7 +80,8 @@ return {
                   local dir = vim.fn.fnamemodify(selection.path, ':p:h')
                   require('telescope.actions').close(prompt_bufnr)
                   local file = vim.fn.expand '%:p'
-                  vim.cmd(string.format('silent !mv %s %s', file, dir))
+                  vim.cmd(string.format('silent !mv %s %s', vim.fn.fnameescape(file), vim.fn.fnameescape(dir)))
+                  vim.cmd 'Alpha' -- collapse back into alpha, since buffer is gone
                 end,
               },
             },
