@@ -63,10 +63,29 @@ return {
             -- width = 0.95,
           },
           mappings = {
-            i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+            i = {
+              ['<c-enter>'] = 'to_fuzzy_refine',
+            },
+            -- n = {},
           },
         },
         -- pickers = {}
+        pickers = {
+          find_files = {
+            mappings = {
+              i = {
+                -- Ctrl-YEET the current open file to the buffer selection directory
+                ['<C-y>'] = function(prompt_bufnr)
+                  local selection = require('telescope.actions.state').get_selected_entry()
+                  local dir = vim.fn.fnamemodify(selection.path, ':p:h')
+                  require('telescope.actions').close(prompt_bufnr)
+                  local file = vim.fn.expand '%:p'
+                  vim.cmd(string.format('silent !mv %s %s', file, dir))
+                end,
+              },
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -86,10 +105,23 @@ return {
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      -- vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+      -- [S]earch [D]irectory keymap, because ripgrep doesn't support -type d and fd
+      -- is simply not working for me at all when I try to do this
+      vim.keymap.set('n', '<leader>sd', function()
+        builtin.find_files {
+          -- cwd = vim.fn.getcwd(),
+          find_command = {
+            'find',
+            '-type',
+            'd',
+          },
+        }
+      end, { desc = '[S]earch [D]irectories' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
