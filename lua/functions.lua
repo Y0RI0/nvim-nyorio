@@ -38,3 +38,9 @@ local function visual_cut_delete()
   end
 end
 vim.keymap.set('v', 'cd', visual_cut_delete, { noremap = true, expr = true, desc = '[v]isual [c]ut [d]elete' })
+
+vim.keymap.set('n', '<leader>dt', function()
+  local is_enabled = vim.diagnostic.is_enabled()
+  vim.diagnostic.enable(not is_enabled)
+  print(is_enabled and 'Diagnostics disabled' or 'Diagnostics enabled')
+end, { silent = true, noremap = true, desc = '[d]iagnostics [t]oggle' })
