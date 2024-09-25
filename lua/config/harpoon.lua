@@ -7,6 +7,7 @@ harpoon:setup()
 -- Add items and enter telescope menu
 vim.keymap.set('n', '<leader>a', function()
   harpoon:list():add()
+  require 'notify'('File added to menu', '', { title = 'Harpoon 🔱' })
 end, { desc = '[a] an item to the harpoon list' })
 vim.keymap.set('n', '<C-e>', function()
   harpoon.ui:toggle_quick_menu(harpoon:list())
