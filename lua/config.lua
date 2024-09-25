@@ -4,3 +4,4 @@
 
 require 'config/terraform'
 require 'config/harpoon'
+require 'config/moonscript'

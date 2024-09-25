@@ -70,23 +70,6 @@ return {
           },
         },
         -- pickers = {}
-        pickers = {
-          find_files = {
-            mappings = {
-              i = {
-                -- Ctrl-YEET the current open file to the buffer selection directory
-                ['<C-y>'] = function(prompt_bufnr)
-                  local selection = require('telescope.actions.state').get_selected_entry()
-                  local dir = vim.fn.fnamemodify(selection.path, ':p:h')
-                  require('telescope.actions').close(prompt_bufnr)
-                  local file = vim.fn.expand '%:p'
-                  vim.cmd(string.format('silent !mv %s %s', vim.fn.fnameescape(file), vim.fn.fnameescape(dir)))
-                  vim.cmd 'Alpha' -- collapse back into alpha, since buffer is gone
-                end,
-              },
-            },
-          },
-        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -115,14 +98,28 @@ return {
       -- is simply not working for me at all when I try to do this
       vim.keymap.set('n', '<leader>sd', function()
         builtin.find_files {
-          -- cwd = vim.fn.getcwd(),
+          prompt_title = 'Choose a directory to send the current file to',
+          attach_mappings = function(_, map)
+            map('i', '<CR>', function(prompt_bufnr)
+              local selection = require('telescope.actions.state').get_selected_entry()
+              local dir = vim.fn.fnamemodify(selection.path, ':p:h')
+              require('telescope.actions').close(prompt_bufnr)
+              local file = vim.fn.expand '%:p'
+              vim.cmd(string.format('silent !mv %s %s', vim.fn.fnameescape(file), vim.fn.fnameescape(dir)))
+              vim.cmd 'Alpha' -- collapse back into alpha, since buffer is gone
+              require 'notify'("That's all she yote", 'info', { title = 'Yeet 🏀' })
+            end)
+            -- true to map default_mappings and
+            -- false if not
+            return true
+          end,
           find_command = {
             'find',
             '-type',
             'd',
           },
         }
-      end, { desc = '[S]earch [D]irectories' })
+      end, { desc = '[S]earch [D]irectories (In order to yeet the current file there)' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()

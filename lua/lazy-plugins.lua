@@ -40,6 +40,7 @@ require('lazy').setup({
   require 'custom/plugins/alpha',
   require 'custom/plugins/undotree',
   require 'custom/plugins/trouble',
+  require 'custom/plugins/notify',
 
   -- oldge vim plugin for syntax
   require 'config/moonscript',
