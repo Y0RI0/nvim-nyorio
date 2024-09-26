@@ -96,6 +96,7 @@ return {
 
       -- [S]earch [D]irectory keymap, because ripgrep doesn't support -type d and fd
       -- is simply not working for me at all when I try to do this
+      -- Search <leader>sh , telescope , / , function(_, map)
       vim.keymap.set('n', '<leader>sd', function()
         builtin.find_files {
           prompt_title = 'Choose a directory to send the current file to',
@@ -105,7 +106,8 @@ return {
               local dir = vim.fn.fnamemodify(selection.path, ':p:h')
               require('telescope.actions').close(prompt_bufnr)
               local file = vim.fn.expand '%:p'
-              vim.cmd(string.format('silent !mv %s %s', vim.fn.fnameescape(file), vim.fn.fnameescape(dir)))
+              -- vim.cmd(string.format('silent !mv %s %s', vim.fn.fnameescape(file), vim.fn.fnameescape(dir)))
+              vim.system({ 'mv', file, dir }):wait()
               vim.cmd 'Alpha' -- collapse back into alpha, since buffer is gone
               require 'notify'("That's all she yote", 'info', { title = 'Yeet 🏀' })
             end)
@@ -113,11 +115,13 @@ return {
             -- false if not
             return true
           end,
-          find_command = {
+          find_command = { 'bash', '-c', 'fdfind --type d && echo "."' },
+          -- The OG Way to do this
+          --[[   find_command = {
             'find',
             '-type',
             'd',
-          },
+          }, ]]
         }
       end, { desc = '[S]earch [D]irectories (In order to yeet the current file there)' })
 
