@@ -92,7 +92,7 @@ return {
       -- keymap to grab mdcallouts for insertion
       vim.keymap.set('n', '<leader>sc', function()
         builtin.find_files(require('telescope.themes').get_cursor {
-          prompt_title = 'Choose a callout to insert 🗣️',
+          prompt_title = 'Choose a callout to insert 🗣️ ',
           previewer = false,
           layout_config = {
             height = 0.70,
