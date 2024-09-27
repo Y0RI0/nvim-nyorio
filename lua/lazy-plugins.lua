@@ -41,15 +41,16 @@ require('lazy').setup({
   require 'custom/plugins/undotree',
   require 'custom/plugins/trouble',
   require 'custom/plugins/notify',
+  require 'custom/plugins/telescope',
+  require 'custom/plugins/gitsigns', -- customized
+  require 'custom/plugins/which-key', -- customized
+  require 'custom/plugins/lspconfig', -- customized
 
   -- oldge vim plugin for syntax
   require 'config/moonscript',
 
   -- kickstart, pre-included plugins
-  require 'kickstart/plugins/gitsigns', -- customized
-  require 'kickstart/plugins/which-key', -- customized
-  require 'kickstart/plugins/telescope',
-  require 'kickstart/plugins/lspconfig', -- customized
+
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/cmp',
   require 'kickstart/plugins/todo-comments',
