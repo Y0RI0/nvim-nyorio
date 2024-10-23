@@ -3,6 +3,9 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+--  Enables local config search for .nvimrc
+vim.o.exrc = true
+
 -- disable built in tree view
 -- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
 -- https://neovim.io/doc/user/spell.html
