@@ -10,8 +10,8 @@ vim.opt.termguicolors = true
 -- disable built in tree view
 -- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
 -- https://neovim.io/doc/user/spell.html
-vim.opt.spelllang = 'en_us'
-vim.opt.spell = true
+-- vim.opt.spelllang = 'en_us'
+-- vim.opt.spell = true
 
 -- Make line numbers default
 vim.opt.number = true
