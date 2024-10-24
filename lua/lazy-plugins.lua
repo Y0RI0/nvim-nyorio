@@ -35,6 +35,7 @@ require('lazy').setup({
   require 'custom/plugins/glow',
   require 'custom/plugins/vis-multiline',
   require 'custom/plugins/obsidian',
+  require 'custom/plugins/render-markdown',
   require 'custom/plugins/image',
   require 'custom/plugins/harpoon',
   require 'custom/plugins/alpha',
@@ -42,6 +43,7 @@ require('lazy').setup({
   require 'custom/plugins/trouble',
   require 'custom/plugins/notify',
   require 'custom/plugins/telescope',
+  require 'custom/plugins/highlight-colors',
   require 'custom/plugins/gitsigns', -- customized
   require 'custom/plugins/which-key', -- customized
   require 'custom/plugins/lspconfig', -- customized

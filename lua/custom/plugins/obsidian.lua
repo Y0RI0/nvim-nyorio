@@ -273,7 +273,7 @@ return {
     -- Optional, configure additional syntax highlighting / extmarks.
     -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
     ui = {
-      enable = true, -- set to false to disable all additional syntax features
+      enable = false, -- set to false to disable all additional syntax features
       update_debounce = 200, -- update delay after a text change (in milliseconds)
       max_file_length = 5000, -- disable UI features for files with more than this many lines
       -- Define how various check-boxes are displayed
@@ -309,7 +309,7 @@ return {
         ObsidianBullet = { bold = true, fg = '#89ddff' },
         ObsidianRefText = { underline = true, fg = '#c792ea' },
         ObsidianExtLinkIcon = { fg = '#c792ea' },
-        ObsidianTag = { italic = true, fg = '#89ddff' },
+        ObsidianTag = { italic = true, fg = '#89dda9' },
         ObsidianBlockID = { italic = true, fg = '#89ddff' },
         ObsidianHighlightText = { bg = '#75662e' },
       },

@@ -6,6 +6,7 @@
 --  Enables local config search for .nvimrc
 vim.o.exrc = true
 
+vim.opt.termguicolors = true
 -- disable built in tree view
 -- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
 -- https://neovim.io/doc/user/spell.html
