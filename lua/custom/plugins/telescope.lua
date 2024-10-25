@@ -49,6 +49,12 @@ return {
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      vim.keymap.set('n', '<leader>s,', function()
+        builtin.find_files { hidden = true, no_ignore = true, cwd = vim.fn.getcwd() }
+      end, { desc = '[S]earch hidden files [,]' })
+      vim.keymap.set('n', '<leader>s;', function()
+        builtin.live_grep { additional_args = { '--hidden', '--glob', '!.git' } }
+      end, { desc = 'Grep within hidden files' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -140,9 +146,10 @@ return {
           attach_mappings = function(_, map)
             map('i', '<CR>', function(prompt_bufnr)
               local selection = require('telescope.actions.state').get_selected_entry().path
+              local firstChar = string.match(selection, '[^%s]+')
               require('telescope.actions').close(prompt_bufnr)
               vim.api.nvim_put(
-                { selection },
+                { firstChar },
                 'c', -- character-wise
                 true, -- move-cursor
                 true -- block-mode
@@ -152,6 +159,43 @@ return {
           end,
         })
       end, { desc = '[S]earch nerdfont [i]cons' })
+
+      vim.keymap.set('n', '<leader>sb', function()
+        builtin.find_files(require('telescope.themes').get_cursor {
+          prompt_title = 'Choose a code snippet to insert ✂️ ',
+          cwd = '~/.deez/snips',
+          previewer = true,
+          layout_config = {
+            height = 0.40,
+            width = 0.70,
+          },
+          attach_mappings = function(_, map)
+            map('i', '<CR>', function(prompt_bufnr)
+              local entry = require('telescope.actions.state').get_selected_entry()
+              local file = entry.path
+
+              -- Open and read the file
+              local f = assert(io.open(file, 'r'))
+              local code_snippet = f:read '*all'
+              f:close()
+
+              require('telescope.actions').close(prompt_bufnr)
+
+              -- Insert the code snippet
+              vim.api.nvim_put(
+                vim.split(code_snippet, '\n'),
+                'l', -- line-wise
+                true, -- move-cursor
+                true -- block-mode
+              )
+              local notification = string.format('Snippet for %s inserted.', file)
+              require 'notify'(notification, '', { title = 'snippets ✀ ', timeout = 100 })
+            end)
+
+            return true -- Map to defaults for picker
+          end,
+        })
+      end, { desc = 'Choose code [s]nippet to [i]nsert' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()

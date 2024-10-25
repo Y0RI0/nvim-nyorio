@@ -45,6 +45,16 @@ return {
       -- You can disable the default linters by setting their filetypes to nil:
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
+
+      -- Shit don't work 󰇷
+      -- https://www.npmjs.com/package/markdownlint-cli#usage
+      -- local md = require('lint').linters.markdownlint
+      -- md.args = {
+      --   '--disable',
+      --   'MD013',
+      --   '--', -- Required
+      -- }
+
       local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
         group = lint_augroup,
