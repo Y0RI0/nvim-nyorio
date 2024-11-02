@@ -11,6 +11,7 @@ return {
       .. vim.fn.expand '~'
       .. '/tomb/md/markdown/work/**.md',
     'BufNewFile ' .. vim.fn.expand '~' .. '/tomb/md/markdown/work/**.md',
+    -- 'BufNewFile ' .. vim.fn.expand '~' .. '/nextcloud/markdown/work/**.md', -- MSI laptop
   },
   dependencies = {
     -- Required.
@@ -30,6 +31,11 @@ return {
         name = 'work',
         path = vim.fn.expand '~' .. '/tomb/md/markdown/work',
       },
+      -- MSI laptop
+      -- {
+      --   name = 'work',
+      --   path = vim.fn.expand '~' .. '/nextcloud/markdown/work',
+      -- },
       --[[       {
 +      name = "no-vault",
 +      path = function()
