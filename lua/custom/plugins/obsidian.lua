@@ -10,7 +10,10 @@ return {
     'BufReadPre '
       .. vim.fn.expand '~'
       .. '/tomb/md/markdown/work/**.md',
-    'BufNewFile ' .. vim.fn.expand '~' .. '/tomb/md/markdown/work/**.md',
+    -- .. '/nextcloud/markdown/work/**.md',
+    'BufNewFile '
+      .. vim.fn.expand '~'
+      .. '/tomb/md/markdown/work/**.md',
     -- 'BufNewFile ' .. vim.fn.expand '~' .. '/nextcloud/markdown/work/**.md', -- MSI laptop
   },
   dependencies = {
