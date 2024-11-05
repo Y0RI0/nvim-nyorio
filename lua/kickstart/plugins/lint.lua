@@ -8,7 +8,8 @@ return {
       lint.linters_by_ft = {
         dockerfile = { 'hadolint' },
         json = { 'jsonlint' },
-        markdown = { 'markdownlint' },
+        -- markdown = { 'markdownlint' },
+        markdown = { 'markdownlint-cli2' },
         terraform = { 'tflint' },
         go = { 'golangcilint' },
         text = { 'vale' },
@@ -46,7 +47,8 @@ return {
       -- Create autocommand which carries out the actual linting
       -- on the specified events.
 
-      -- Shit don't work 󰇷
+      -- Shit don't work, using this instead
+      -- https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
       -- https://www.npmjs.com/package/markdownlint-cli#usage
       -- local md = require('lint').linters.markdownlint
       -- md.args = {
