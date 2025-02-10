@@ -14,12 +14,15 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'spaceduck'
+      vim.cmd.colorscheme 'spaceduck'
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
   { 'calind/selenized.nvim' },
+  { 'lunarvim/templeos.nvim' },
+  { 'xero/evangelion.nvim' },
+  { 'neko-night/nvim' },
   {
     'navarasu/onedark.nvim',
     lazy = false,
@@ -114,7 +117,7 @@ return {
           background = true, -- use background color for virtual text
         },
       }
-      require('bamboo').load()
+      -- require('bamboo').load()
     end,
   },
 }

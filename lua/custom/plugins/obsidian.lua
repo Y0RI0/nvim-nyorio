@@ -20,6 +20,7 @@ return {
     -- Required.
     'nvim-lua/plenary.nvim',
     'hrsh7th/nvim-cmp',
+    'telescope.nvim',
     -- '',
   },
   opts = {

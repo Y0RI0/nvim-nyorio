@@ -10,6 +10,7 @@ require 'keymaps/mystery-keymap'
 require 'keymaps/terraform-keymap'
 require 'keymaps/settings-keymap'
 require 'keymaps/undotree'
+require 'keymaps/leap-keymap'
 
 -- Not quite keymaps, more like functions, autocmds
 require 'keymaps/autocmd'

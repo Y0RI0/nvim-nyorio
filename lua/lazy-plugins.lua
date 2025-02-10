@@ -47,6 +47,7 @@ require('lazy').setup({
   require 'custom/plugins/gitsigns', -- customized
   require 'custom/plugins/which-key', -- customized
   require 'custom/plugins/lspconfig', -- customized
+  require 'custom/plugins/leap',
 
   -- oldge vim plugin for syntax
   require 'config/moonscript',

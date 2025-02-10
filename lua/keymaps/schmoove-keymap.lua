@@ -5,8 +5,11 @@
 -- Window schmoovement
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- !NOTE: I'll need to think about how to do that differently
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-j>', '<C-f>', { desc = 'Page Down' })
+vim.keymap.set('n', '<C-k>', '<C-b>', { desc = 'Page Up' })
 -- Split management
 vim.keymap.set('n', '<leader>bv', '<C-w>v', { desc = '[b]reak the window vertically' })
 vim.keymap.set('n', '<leader>bh', '<C-w>s', { desc = '[b]reak the window horizontally' })
