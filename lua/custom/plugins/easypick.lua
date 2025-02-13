@@ -3,19 +3,20 @@ return {
     'axkirillov/easypick.nvim',
     lazy = false,
     config = function()
+      local easypick = require 'easypick'
       require('easypick').setup {
         pickers = {
           {
-            name = 'colorscheme',
-            command = 'cat ' .. list,
-            action = easypick.actions.nvim_command 'colorscheme',
+            name = 'nerdfonticons 󰇷',
+            command = 'cat ~/.deez/nerdfonticons',
+            action = easypick.actions.nvim_commandf 'PutFirstWord %s', -- see functios.lua
             opts = require('telescope.themes').get_cursor {},
-            vim.api.nvim_put(
-              { firstChar },
-              'c', -- character-wise
-              true, -- move-cursor
-              true -- block-mode
-            ),
+          },
+          {
+            name = 'callouts ',
+            command = 'cat ~/.deez/mdcallouts',
+            action = easypick.actions.nvim_commandf 'PutLine %s', -- see functios.lua
+            opts = require('telescope.themes').get_cursor {},
           },
         },
       }

@@ -46,13 +46,27 @@ vim.keymap.set('n', '<leader>dt', function()
   require 'notify'((is_enabled and 'Diagnostics disabled' or 'Diagnostics enabled'), '', { title = 'Diagnostics 💊', timeout = 10 })
 end, { silent = true, noremap = true, desc = '[d]iagnostics [t]oggle' })
 
-local function put_first_char(args)
-  local firstChar = string.match(args.selection, '[^%s]+')
-  return vim.api.nvim_put(
-    { firstChar },
+local function put_first_word(selection)
+  for k, v in pairs(selection) do
+    print(k, v)
+  end
+  local firstWord = string.match(selection.args, '[^%s]+')
+  print(firstWord)
+  vim.api.nvim_put(
+    { firstWord },
     'c', -- character-wise
     true, -- move-cursor
     true -- block-mode
   )
 end
-vim.api.nvim_create_user_command('PutFirstChar', put_first_char, { nargs = 1, desc = '', selection = 'something' })
+vim.api.nvim_create_user_command('PutFirstWord', put_first_word, { nargs = 1, desc = '' })
+
+local function put_line(selection)
+  vim.api.nvim_put(
+    { selection.args },
+    'c', -- character-wise
+    true, -- move-cursor
+    true -- block-mode
+  )
+end
+vim.api.nvim_create_user_command('PutLine', put_line, { nargs = 1, desc = '' })
