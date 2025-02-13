@@ -8,7 +8,7 @@ return {
       },
       backend = 'kitty',
       -- sudo apt install libmagickwand-dev
-      processor = 'magick_rock', -- or "magick_cli"
+      processor = 'magick_cli', -- or "magick_cli"
       kitty_method = 'normal',
       integrations = {
         markdown = {
