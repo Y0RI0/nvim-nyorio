@@ -41,6 +41,7 @@ return {
           },
         },
       }
+
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
@@ -197,6 +198,39 @@ return {
           end,
         })
       end, { desc = 'Choose code [s]nippet to [i]nsert' })
+
+      -- keymap to grab mdcallouts for insertion
+      vim.keymap.set('n', '<leader>sp', function()
+        builtin.find_files(require('telescope.themes').get_cursor {
+          prompt_title = 'Choose a nerd font icon to insert 🤓 ',
+          previewer = false,
+          layout_config = {
+            height = 0.70,
+            width = 0.30,
+          },
+          find_command = {
+            'bash',
+            '-c',
+            [[
+            rg | cat ~/.deez/nerdfonticons
+            ]],
+          },
+          attach_mappings = function(_, map)
+            map('i', '<CR>', function(prompt_bufnr)
+              local selection = require('telescope.actions.state').get_selected_entry().path
+              local firstChar = string.match(selection, '[^%s]+')
+              require('telescope.actions').close(prompt_bufnr)
+              vim.api.nvim_put(
+                { firstChar },
+                'c', -- character-wise
+                true, -- move-cursor
+                true -- block-mode
+              )
+            end)
+            return true -- Map to defaults for picker
+          end,
+        })
+      end, { desc = '[S]earch nerdfont [i]cons' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()

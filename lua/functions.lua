@@ -45,3 +45,14 @@ vim.keymap.set('n', '<leader>dt', function()
   -- print(is_enabled and 'Diagnostics disabled' or 'Diagnostics enabled')
   require 'notify'((is_enabled and 'Diagnostics disabled' or 'Diagnostics enabled'), '', { title = 'Diagnostics 💊', timeout = 10 })
 end, { silent = true, noremap = true, desc = '[d]iagnostics [t]oggle' })
+
+local function put_first_char(args)
+  local firstChar = string.match(args.selection, '[^%s]+')
+  return vim.api.nvim_put(
+    { firstChar },
+    'c', -- character-wise
+    true, -- move-cursor
+    true -- block-mode
+  )
+end
+vim.api.nvim_create_user_command('PutFirstChar', put_first_char, { nargs = 1, desc = '', selection = 'something' })

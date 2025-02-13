@@ -6,6 +6,7 @@ return {
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
   opts = {
+    html = { comment = { conceal = false } },
     -- Whether Markdown should be rendered by default or not
     enabled = true,
     -- Maximum file size (in MB) that this plugin will attempt to render
@@ -19,7 +20,7 @@ return {
     --  obsidian: mimic Obsidian UI
     --  lazy:     will attempt to stay up to date with LazyVim configuration
     --  none:     does nothing
-    preset = 'none',
+    preset = 'obsidian',
     -- The level of logs to write to file: vim.fn.stdpath('state') .. '/render-markdown.log'
     -- Only intended to be used for plugin development / debugging
     log_level = 'error',
