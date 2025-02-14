@@ -8,14 +8,14 @@ return {
       },
       backend = 'kitty',
       -- sudo apt install libmagickwand-dev
-      processor = 'magick_cli', -- or "magick_cli"
+      processor = 'magick_rock', -- or "magick_cli", which seems to be broken asf
       kitty_method = 'normal',
       integrations = {
         markdown = {
           enabled = true,
           clear_in_insert_mode = true,
           download_remote_images = true,
-          only_render_image_at_cursor = false,
+          only_render_image_at_cursor = true,
           floating_windows = true, -- if true, images will be rendered in floating markdown windows
           filetypes = { 'markdown', 'vimwiki' }, -- markdown extensions (ie. quarto) can go here
           --[[          resolve_image_path = function(document_path, image_path, fallback)

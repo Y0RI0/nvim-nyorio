@@ -26,4 +26,6 @@ vim.keymap.set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go backward one tab
 vim.keymap.set('n', '<leader>tc', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
 -- Schmoove to beginning and ends of lines
 vim.keymap.set('n', 'mb', '0', { desc = '[m]ove to the [b]eginning of a line' })
+vim.keymap.set('v', 'mb', '0', { desc = '[m]ove to the [b]eginning of a line' })
 vim.keymap.set('n', 'me', '$', { desc = '[m]ove to the [e]nd of a line' })
+vim.keymap.set('v', 'me', '$', { desc = '[m]ove to the [e]nd of a line' })
