@@ -3,6 +3,7 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.laststatus = 0
 --  Enables local config search for .nvimrc
 vim.o.exrc = true
 

@@ -22,6 +22,7 @@ return {
         PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
         NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
         TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
+        INDIC = { icon = '', color = 'indicator', alt = { 'I' } },
       },
       colors = {
         error = { 'DiagnosticError', 'ErrorMsg', '#DC2626' },
@@ -30,6 +31,7 @@ return {
         hint = { 'DiagnosticHint', '#10B981' },
         default = { 'Identifier', '#7C3AED' },
         test = { 'Identifier', '#FF00FF' },
+        indicator = { 'Identifier', '#830A48' },
       },
       gui_style = {
         fg = 'NONE', -- The gui style to use for the fg highlight group.

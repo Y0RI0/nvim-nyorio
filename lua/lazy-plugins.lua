@@ -32,7 +32,6 @@ require('lazy').setup({
   require 'custom/plugins/colorscheme',
   require 'custom/plugins/neo-tree',
   require 'custom/plugins/comment',
-  require 'custom/plugins/glow',
   require 'custom/plugins/vis-multiline',
   require 'custom/plugins/obsidian',
   require 'custom/plugins/render-markdown',
@@ -49,7 +48,8 @@ require('lazy').setup({
   require 'custom/plugins/lspconfig', -- customized
   require 'custom/plugins/leap',
   require 'custom/plugins/easypick',
-  -- require 'custom/plugins/rocks',
+  require 'custom/plugins/todo-comments', -- !I: Customized
+  require 'custom/plugins/lualine',
 
   -- oldge vim plugin for syntax
   require 'config/moonscript',
@@ -58,7 +58,6 @@ require('lazy').setup({
 
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/cmp',
-  require 'kickstart/plugins/todo-comments',
   require 'kickstart/plugins/mini',
   require 'kickstart/plugins/treesitter',
 
