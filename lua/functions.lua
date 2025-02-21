@@ -39,13 +39,6 @@ local function visual_cut_delete()
 end
 vim.keymap.set('v', 'cd', visual_cut_delete, { noremap = true, expr = true, desc = '[v]isual [c]ut [d]elete' })
 
-vim.keymap.set('n', '<leader>dt', function()
-  local is_enabled = vim.diagnostic.is_enabled()
-  vim.diagnostic.enable(not is_enabled)
-  -- print(is_enabled and 'Diagnostics disabled' or 'Diagnostics enabled')
-  require 'notify'((is_enabled and 'Diagnostics disabled' or 'Diagnostics enabled'), '', { title = 'Diagnostics 💊', timeout = 10 })
-end, { silent = true, noremap = true, desc = '[d]iagnostics [t]oggle' })
-
 local function put_first_word(selection)
   for k, v in pairs(selection) do
     print(k, v)

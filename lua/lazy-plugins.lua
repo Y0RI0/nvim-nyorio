@@ -1,81 +1,49 @@
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+  --!I: This is just showcasing different import styles
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-
-  -- NOTE: Plugins can also be added by using a table,
-  -- with the first argument being the link and the following
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
-  -- Use `opts = {}` to force a plugin to be loaded.
-  --
+  { 'numToStr/Comment.nvim', opts = {} },
   --  This is equivalent to:
   --    require('Comment').setup({})
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  -- Untouched, also showing alternate import syntax
+  require 'plugins.debug', -- !I: untouched
+  require 'plugins.indent_line', -- !I: untouched
+  require 'plugins.autopairs', -- !I: untouched
 
-  -- modular approach: using `require 'path/name'` will
-  -- include a plugin definition from file lua/path/name.lua
-
+  -- This would import all of them. Maybe one day when I have a perfect config
+  -- { import = 'plugins' },
+  ------------------------------------------------------
   -- custom plugins
-  require 'custom/plugins/colorscheme',
-  require 'custom/plugins/neo-tree',
-  require 'custom/plugins/comment',
-  require 'custom/plugins/vis-multiline',
-  require 'custom/plugins/obsidian',
-  require 'custom/plugins/render-markdown',
-  require 'custom/plugins/image',
-  require 'custom/plugins/harpoon',
-  require 'custom/plugins/alpha',
-  require 'custom/plugins/undotree',
-  require 'custom/plugins/trouble',
-  require 'custom/plugins/notify',
-  require 'custom/plugins/telescope',
-  require 'custom/plugins/highlight-colors',
-  require 'custom/plugins/gitsigns', -- customized
-  require 'custom/plugins/which-key', -- customized
-  require 'custom/plugins/lspconfig', -- customized
-  require 'custom/plugins/leap',
-  require 'custom/plugins/easypick',
-  require 'custom/plugins/todo-comments', -- !I: Customized
-  require 'custom/plugins/lualine',
-
-  -- oldge vim plugin for syntax
-  require 'config/moonscript',
-
-  -- kickstart, pre-included plugins
-
-  require 'kickstart/plugins/conform',
-  require 'kickstart/plugins/cmp',
-  require 'kickstart/plugins/mini',
-  require 'kickstart/plugins/treesitter',
-
-  require 'kickstart.plugins.debug', -- I should learn how to use this
-  require 'kickstart.plugins.indent_line',
-  require 'kickstart.plugins.lint', -- custom, turned on some default linters
-  require 'kickstart.plugins.autopairs',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  require 'plugins/colorscheme',
+  require 'plugins/neo-tree',
+  require 'plugins/comment',
+  require 'plugins/vis-multiline',
+  require 'plugins/obsidian',
+  require 'plugins/render-markdown',
+  require 'plugins/image',
+  require 'plugins/harpoon',
+  require 'plugins/alpha',
+  require 'plugins/undotree',
+  require 'plugins/trouble',
+  require 'plugins/notify',
+  require 'plugins/telescope',
+  require 'plugins/highlight-colors',
+  require 'plugins/leap',
+  require 'plugins/easypick',
+  require 'plugins/todo-comments',
+  require 'plugins/lualine',
+  ------------------------------------------------------
+  -- Came with Kickstart
+  require 'plugins/conform',
+  require 'plugins/cmp',
+  require 'plugins/mini',
+  require 'plugins/treesitter',
+  require 'plugins.lint',
+  require 'plugins/gitsigns',
+  require 'plugins/which-key',
+  require 'plugins/lspconfig',
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
@@ -93,5 +61,10 @@ require('lazy').setup({
     },
   },
 })
+
+-- Not lazy, just normal include
+-- These are either legacy Vim or just reusing something from preloaded plug
+require 'plugins/terraform'
+require 'plugins/moonscript'
 
 -- vim: ts=2 sts=2 sw=2 et
