@@ -1,94 +1,43 @@
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+vim.o.exrc = true --  Enables local config search for .nvimrc
+local options = {
+  -- See `:help
+  -- For more options, you can see `:help option-list`
+  -- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree   -- disable built in tree view
+  laststatus = 0, -- disable regular statusline completely
+  termguicolors = true,
+  number = true, -- Make line numbers default
+  mouse = 'a', -- Enable mouse mode, can be useful for resizing splits for example!
+  showmode = false, -- Don't show the mode, since it's already in the status line
+  clipboard = 'unnamedplus', -- Sync clipboard between OS and Neovim. See `:help 'clipboard'`
+  breakindent = true, -- Enable break indent
+  cursorline = true, -- cursorline and column to show placement of cursor
+  cursorcolumn = true,
+  undofile = true, -- Save undo history
+  ignorecase = true, -- Case-insensitive searching
+  smartcase = true, -- UNLESS \C or one or more capital letters in the search term
+  signcolumn = 'yes', -- Keep signcolumn on by default
+  updatetime = 250, -- Decrease update time
+  timeoutlen = 300, -- Decrease mapped sequence wait time (Displays which-key popup sooner)
+  splitright = true, -- Configure how new splits should be opened
+  splitbelow = true, -- Configure how new splits should be opened
+  list = true, --  See `:help 'list'`
+  listchars = { tab = '» ', trail = '', nbsp = '␣' }, -- whitespace char display, see :help 'listchars
+  inccommand = 'split', -- Preview substitutions live, as you type!
+  scrolloff = 10, -- Minimal number of screen lines to keep above and below the cursor.
+  swapfile = false, -- Disable swapfiles because laggy asf and causing problems
+  conceallevel = 1, -- This one helps to properly render markdown checkboxes and such
+  foldcolumn = '1', -- NOTE: These are toggled with 'z' something. V select, then z-f to fold the selection
+  tabstop = 2, -- Tabs
+  softtabstop = 2, -- Tabs
+  shiftwidth = 2, -- Tabs
+  expandtab = true, -- Tabs
+  -- vim: ts=2 sts=2 sw=2 et
+}
 
-vim.opt.laststatus = 0
---  Enables local config search for .nvimrc
-vim.o.exrc = true
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
 
-vim.opt.termguicolors = true
--- disable built in tree view
--- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree
--- https://neovim.io/doc/user/spell.html
--- vim.opt.spelllang = 'en_us'
--- vim.opt.spell = true
-
--- Make line numbers default
-vim.opt.number = true
--- vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
--- Sync clipboard between OS and Neovim.
---  See `:help 'clipboard'`
-vim.opt.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.opt.breakindent = true
-
--- cursorline and column to show placement of cursor
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
-
--- Save undo history
-vim.opt.undofile = true
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
--- vim: ts=2 sts=2 sw=2 et
--- Tabs
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-
--- Disable swapfiles because laggy asf and causing problems
-vim.opt.swapfile = false
-
--- This one helps to properly render markdown checkboxes and such
-vim.opt.conceallevel = 1
-
-vim.opt.foldcolumn = '1'
--- NOTE: These are toggled with 'z' something. V select, then z-f to fold the selection
-
--- Highlight entire line for errors
--- Highlight the line number for warnings
 -- Straight from docs this one https://neovim.io/doc/user/diagnostic.html
 vim.diagnostic.config {
   signs = {
@@ -98,13 +47,11 @@ vim.diagnostic.config {
       [vim.diagnostic.severity.INFO] = '',
       [vim.diagnostic.severity.HINT] = '💡',
     },
-    linehl = {
+    linehl = { -- Highlight entire line for errors
       [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
     },
-    numhl = {
+    numhl = { -- Highlight the line number for warnings
       [vim.diagnostic.severity.WARN] = 'WarningMsg',
     },
   },
 }
-
--- vim.opt.foldmethod = 'indent'
