@@ -4,6 +4,7 @@ local options = {
   -- For more options, you can see `:help option-list`
   -- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree   -- disable built in tree view
   laststatus = 0, -- disable regular statusline completely
+  hlsearch = true, -- highlight on search
   termguicolors = true,
   number = true, -- Make line numbers default
   mouse = 'a', -- Enable mouse mode, can be useful for resizing splits for example!
@@ -17,7 +18,7 @@ local options = {
   smartcase = true, -- UNLESS \C or one or more capital letters in the search term
   signcolumn = 'yes', -- Keep signcolumn on by default
   updatetime = 250, -- Decrease update time
-  timeoutlen = 300, -- Decrease mapped sequence wait time (Displays which-key popup sooner)
+  timeoutlen = 500, -- Decrease mapped sequence wait time (Displays which-key popup sooner, which adds a little lag to keybinds)
   splitright = true, -- Configure how new splits should be opened
   splitbelow = true, -- Configure how new splits should be opened
   list = true, --  See `:help 'list'`

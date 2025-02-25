@@ -1,3 +1,4 @@
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- clear search on pressing <Esc> in normal mode
 -- Relative line throngler
 vim.keymap.set('n', '<C-L><C-L>', '<cmd>set invrelativenumber<CR>', { desc = 'Throngle relative lines on and off' })
 -- Change ConcealLevel to 0
