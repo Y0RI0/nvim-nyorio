@@ -23,10 +23,10 @@ local keymaps = {
   { 'n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go backward one tab' } },
   { 'n', '<leader>tc', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' } },
   -- Schmoove to beginning and ends of lines
-  { 'n', 'mb', '0', { desc = '[m]ove to the [b]eginning of a line' } },
-  { 'v', 'mb', '0', { desc = '[m]ove to the [b]eginning of a line' } },
-  { 'n', 'me', '$', { desc = '[m]ove to the [e]nd of a line' } },
-  { 'v', 'me', '$', { desc = '[m]ove to the [e]nd of a line' } },
+  { 'n', '<C-h>', '0', { desc = '[m]ove to the [b]eginning of a line' } },
+  { 'v', '<C-h>', '0', { desc = '[m]ove to the [b]eginning of a line' } },
+  { 'n', '<C-l>', '$', { desc = '[m]ove to the [e]nd of a line' } },
+  { 'v', '<C-l>', '$', { desc = '[m]ove to the [e]nd of a line' } },
 }
 
 for _, keymap in ipairs(keymaps) do

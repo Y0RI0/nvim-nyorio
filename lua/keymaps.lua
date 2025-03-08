@@ -3,7 +3,6 @@
 
 require 'keymaps/obsidian-keymap'
 require 'keymaps/diagnostic-keymap'
-require 'keymaps/search-keymap'
 require 'keymaps/gigachad-keymap'
 require 'keymaps/schmoove-keymap'
 require 'keymaps/mystery-keymap'
