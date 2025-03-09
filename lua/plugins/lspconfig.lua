@@ -147,6 +147,7 @@ return {
         -- tsserver = {},
         --
         terraformls = {},
+        yamlls = {},
 
         lua_ls = {
           -- cmd = {...},

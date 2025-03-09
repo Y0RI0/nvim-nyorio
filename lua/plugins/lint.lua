@@ -17,7 +17,7 @@ return {
         terraform = { 'tflint' },
         go = { 'golangcilint' },
         text = { 'vale' },
-        yaml = { 'yamllint' },
+        -- yaml = { 'yamllint' },
       }
 
       -- You can disable the default linters by setting their filetypes to nil:
