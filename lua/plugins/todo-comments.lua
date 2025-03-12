@@ -16,22 +16,31 @@ return {
           alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }, -- a set of other keywords that all map to this FIX keywords
           -- signs = false, -- configure signs for some keywords individually
         },
-        TODO = { icon = ' ', color = 'info' },
+        TODO = { icon = ' ', color = 'error', alt = { 'T' } },
+        DONE = { icon = ' ', color = 'info', alt = { 'D' } },
         HACK = { icon = '󰱵 ', color = 'warning' },
         WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
         PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
-        NOTE = { icon = ' ', color = 'hint', alt = { 'INFO' } },
-        TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
-        INDIC = { icon = '', color = 'indicator', alt = { 'I' } },
+        NOTE = { icon = ' ', color = 'hint', alt = { 'INFO', 'N' } },
+        TEST = { icon = ' ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
+        BTW = { icon = ' ', color = 'test' },
+        INDIC = { icon = ' ', color = 'indicator', alt = { 'I' } },
       },
       colors = {
-        error = { 'DiagnosticError', 'ErrorMsg', '#DC2626' },
-        warning = { 'DiagnosticWarn', 'WarningMsg', '#FBBF24' },
-        info = { 'DiagnosticInfo', '#2563EB' },
-        hint = { 'DiagnosticHint', '#10B981' },
-        default = { 'Identifier', '#7C3AED' },
-        test = { 'Identifier', '#FF00FF' },
-        indicator = { 'Identifier', '#830A48' },
+        -- Some of these are default nvim highlight groups
+        -- If a custom name is not set, colorschemes may override
+        -- error = { 'DiagnosticError', 'ErrorMsg', '#DC2626' },
+        -- warning = { 'DiagnosticWarn', 'WarningMsg', '#FBBF24' },
+        -- info = { 'DiagnosticInfo', '#2563EB' },
+        -- hint = { 'DiagnosticHint', '#10B981' },
+        -- default = { 'Identifier', '#7C3AED' },
+        error = { 'ErrorCustom', '#DC2626' },
+        warning = { 'WarnCustom', '#FBBF24' },
+        info = { 'InfoCustom', '#2563EB' },
+        hint = { 'HintCustom', '#10B981' },
+        default = { 'IDCustom', '#7C3AED' },
+        test = { 'TestCustom', '#FF00FF' },
+        indicator = { 'IndicatorCustom', '#F9FF42' },
       },
       gui_style = {
         fg = 'NONE', -- The gui style to use for the fg highlight group.

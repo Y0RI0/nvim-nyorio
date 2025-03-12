@@ -34,7 +34,11 @@ return {
             -- n = {},
           },
         },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            -- theme = 'dropdown',
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),

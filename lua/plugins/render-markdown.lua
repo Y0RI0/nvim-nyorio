@@ -56,6 +56,8 @@ return {
       --  dash, bullet, check_icon, check_scope, quote, table_border, callout, link, sign
       ignore = {
         code_background = true,
+        code_language = true,
+        code_border = true,
         sign = true,
       },
       -- Number of lines above cursor to show
@@ -171,7 +173,7 @@ return {
       --  normal:   adds highlight group to code blocks & inline code, adds padding to code blocks
       --  language: adds language icon to sign column if enabled and icon + name above code blocks
       --  full:     normal + language
-      style = 'language',
+      style = 'full',
       -- Determines where language icon is rendered:
       --  right: right side of code block
       --  left:  left side of code block
@@ -180,14 +182,14 @@ return {
       -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
       language_pad = 0,
       -- Whether to include the language name next to the icon
-      language_name = false,
+      language_name = true,
       -- A list of language names for which background highlighting will be disabled
       -- Likely because that language has background highlights itself
       disable_background = { 'diff' },
       -- Width of the code block background:
       --  block: width of the code block
       --  full:  full width of the window
-      width = 'full',
+      width = 'block',
       -- Amount of margin to add to the left of code blocks
       -- If a floating point value < 1 is provided it is treated as a percentage of the available window space
       -- Margin available space is computed after accounting for padding
