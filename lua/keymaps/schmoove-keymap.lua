@@ -1,8 +1,8 @@
 -- !I: See `:help wincmd` for a list of all window commands
 local keymaps = {
   -- Window schmoovement
-  { 'n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' } },
-  { 'n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' } },
+  { 'n', '<leader>h', '<C-w><C-h>', { desc = 'Move focus to the left window' } },
+  { 'n', '<leader>l', '<C-w><C-l>', { desc = 'Move focus to the right window' } },
   -- !NOTE: I'll need to think about how to do that differently
   -- {'n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' }},
   -- {'n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' }},

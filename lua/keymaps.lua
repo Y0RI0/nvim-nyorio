@@ -11,6 +11,7 @@ require 'keymaps/settings-keymap'
 require 'keymaps/undotree'
 require 'keymaps/leap-keymap'
 require 'keymaps/easypick-keymap'
+require 'keymaps/marks-keymap'
 
 -- Not quite keymaps, more like functions, autocmds
 require 'keymaps/autocmd'

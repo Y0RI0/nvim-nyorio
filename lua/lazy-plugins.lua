@@ -32,6 +32,8 @@ require('lazy').setup({
   require 'plugins/easypick',
   require 'plugins/todo-comments',
   require 'plugins/lualine',
+  -- require 'plugins/marks',
+  require 'plugins/bookmarks',
   ------------------------------------------------------
   -- Came with Kickstart
   require 'plugins/conform',
