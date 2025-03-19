@@ -1,5 +1,5 @@
 return {
-  'kdnk/nvim-bookmarks',
+  'y0ri0/nvim-bookmarks',
   config = function()
     local bm = require 'bookmarks'
 
