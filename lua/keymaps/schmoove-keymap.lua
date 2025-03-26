@@ -1,8 +1,8 @@
 -- !I: See `:help wincmd` for a list of all window commands
 local keymaps = {
   -- Window schmoovement
-  { 'n', '<leader>h', '<C-w><C-h>', { desc = 'Move focus to the left window' } },
-  { 'n', '<leader>l', '<C-w><C-l>', { desc = 'Move focus to the right window' } },
+  { 'n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' } },
+  { 'n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' } },
   -- !NOTE: I'll need to think about how to do that differently
   -- {'n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' }},
   -- {'n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' }},
@@ -23,10 +23,10 @@ local keymaps = {
   { 'n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go backward one tab' } },
   { 'n', '<leader>tc', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' } },
   -- Schmoove to beginning and ends of lines
-  { 'n', '<C-h>', '0', { desc = '[m]ove to the [b]eginning of a line' } },
-  { 'v', '<C-h>', '0', { desc = '[m]ove to the [b]eginning of a line' } },
-  { 'n', '<C-l>', '$', { desc = '[m]ove to the [e]nd of a line' } },
-  { 'v', '<C-l>', '$', { desc = '[m]ove to the [e]nd of a line' } },
+  { 'n', '<leader>h', '0', { desc = '[m]ove to the [b]eginning of a line' } },
+  { 'v', '<leader>h', '0', { desc = '[m]ove to the [b]eginning of a line' } },
+  { 'n', '<leader>l', '$', { desc = '[m]ove to the [e]nd of a line' } },
+  { 'v', '<leader>l', '$', { desc = '[m]ove to the [e]nd of a line' } },
 }
 
 for _, keymap in ipairs(keymaps) do

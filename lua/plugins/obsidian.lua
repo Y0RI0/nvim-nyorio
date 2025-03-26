@@ -134,7 +134,7 @@ return {
     -- Where to put new notes. Valid options are
     --  * "current_dir" - put new notes in same directory as the current buffer.
     --  * "notes_subdir" - put new notes in the default notes subdirectory.
-    new_notes_location = 'current_dir',
+    new_notes_location = 'notes_subdir',
 
     -- Optional, customize how note IDs are generated given an optional title.
     ---@param title string|?
@@ -193,7 +193,7 @@ return {
 
     -- Optional, boolean or a function that takes a filename and returns a boolean.
     -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-    disable_frontmatter = false,
+    disable_frontmatter = true,
 
     -- Optional, alternatively you can customize the frontmatter data.
     ---@return table
@@ -203,7 +203,12 @@ return {
         note:add_alias(note.title)
       end
 
-      local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+      local out = {
+        id = note.id,
+        aliases = note.aliases,
+        tags = note.tags,
+        MOCs = '',
+      }
 
       -- `note.metadata` contains any manually added fields in the frontmatter.
       -- So here we just make sure those fields are kept in the frontmatter.
