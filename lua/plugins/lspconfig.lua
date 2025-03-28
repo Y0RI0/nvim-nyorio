@@ -147,7 +147,23 @@ return {
         -- tsserver = {},
         --
         terraformls = {},
-        yamlls = {},
+        yamlls = {
+          on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = true
+          end,
+          single_file_support = true,
+          settings = {
+            yaml = {
+              format = {
+                enable = true,
+              },
+              schemaStore = {
+                url = 'https://www.schemastore.org/api/json/catalog.json',
+                enable = true,
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = {...},
