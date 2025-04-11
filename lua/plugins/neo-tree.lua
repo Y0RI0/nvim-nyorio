@@ -11,13 +11,22 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+    { '\\', ':Neotree reveal position=float<CR>', { desc = 'NeoTree reveal' } },
+    { '<leader>\\', ':Neotree git_status position=float<CR>', { desc = 'NeoTree show git status' } },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['P'] = {
+            'toggle_preview',
+            config = {
+              use_float = true,
+              use_image_nvim = true,
+              title = 'Wut dis? 👀',
+            },
+          },
         },
       },
       -- This is custom
