@@ -146,6 +146,7 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        bashls = {},
         terraformls = {},
         yamlls = {
           on_attach = function(client)
@@ -203,6 +204,7 @@ return {
         'yamllint',
         'jsonlint',
         'tflint',
+        'bash-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
