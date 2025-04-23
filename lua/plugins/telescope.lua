@@ -72,7 +72,15 @@ return {
 
       require('telescope').load_extension 'bookmarks'
       vim.keymap.set('n', '<leader>sm', function()
-        require('telescope').extensions.bookmarks.list()
+        require('telescope').extensions.bookmarks.list {
+          prompt_title = 'Search Bookmarks',
+          theme = 'get_ivy',
+          attach_mappings = function(prompt_bufnr, map)
+            -- Automatically switch to normal mode
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', true)
+            return true
+          end,
+        }
       end)
 
       -- ################################################################################################ --
