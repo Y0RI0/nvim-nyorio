@@ -73,7 +73,7 @@ return {
       require('telescope').load_extension 'bookmarks'
       vim.keymap.set('n', '<leader>sm', function()
         require('telescope').extensions.bookmarks.list {
-          prompt_title = 'Search Bookmarks',
+          prompt_title = 'Search Bookmarks  🪄 ',
           theme = 'get_ivy',
           attach_mappings = function(prompt_bufnr, map)
             -- Automatically switch to normal mode
