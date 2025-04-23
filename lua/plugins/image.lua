@@ -1,5 +1,6 @@
 return {
   '3rd/image.nvim',
+  commit = '2e2d28b7734b5efdfc1219f4da8a46c761587bc2',
   config = function()
     -- default config
     require('image').setup {
