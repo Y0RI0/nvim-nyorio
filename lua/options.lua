@@ -3,6 +3,7 @@ local options = {
   -- See `:help
   -- For more options, you can see `:help option-list`
   -- vim.builtin.nvimtree.active = false -- NOTE: using neo-tree   -- disable built in tree view
+  relativenumber = true,
   laststatus = 0, -- disable regular statusline completely
   hlsearch = true, -- highlight on search
   termguicolors = true,
