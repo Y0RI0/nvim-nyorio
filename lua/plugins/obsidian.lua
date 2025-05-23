@@ -65,15 +65,6 @@ return {
 +      }, ]]
     },
 
-    -- Optional, for templates (see below).
-    templates = {
-      folder = 'template',
-      date_format = '%Y-%m-%d',
-      time_format = '%H:%M',
-      -- A map for custom variables, the key should be the variable and the value a function
-      substitutions = {},
-    },
-
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
     -- 'workspaces'. For example:
     -- dir = "~/vaults/work",
@@ -85,23 +76,12 @@ return {
     -- levels defined by "vim.log.levels.*".
     log_level = vim.log.levels.INFO,
 
-    --[[     daily_notes = {
-      -- Optional, if you keep daily notes in a separate directory.
-      folder = 'notes/dailies',
-      -- Optional, if you want to change the date format for the ID of daily notes.
-      date_format = '%Y-%m-%d',
-      -- Optional, if you want to change the date format of the default alias of daily notes.
-      alias_format = '%B %-d, %Y',
-      -- Optional, default tags to add to each new daily note created.
-      default_tags = { 'daily-notes' },
-      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = nil,
-    }, ]]
-
     -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
       -- Set to false to disable completion.
       nvim_cmp = true,
+      -- Enables completion using blink.cmp
+      blink = false,
       -- Trigger completion at 2 chars.
       min_chars = 3,
     },
@@ -185,16 +165,15 @@ return {
     -- Either 'wiki' or 'markdown'.
     preferred_link_style = 'wiki',
 
+    -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
+    disable_frontmatter = true,
+
     -- Optional, customize the default name or prefix when pasting images via `:ObsidianPasteImg`.
     ---@return string
     image_name_func = function()
       -- Prefix image names with timestamp.
       return string.format('%s-', os.time())
     end,
-
-    -- Optional, boolean or a function that takes a filename and returns a boolean.
-    -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-    disable_frontmatter = true,
 
     -- Optional, alternatively you can customize the frontmatter data.
     ---@return table
@@ -226,10 +205,18 @@ return {
     -- URL it will be ignored but you can customize this behavior here.
     ---@param url string
     follow_url_func = function(url)
-      -- Open the URL in the default web browser.
-      vim.fn.jobstart { 'open', url } -- Mac OS
-      -- vim.fn.jobstart({"xdg-open", url})  -- linux
+      vim.ui.open(url)
+      -- vim.fn.jobstart { 'xdg-open', url } -- linux
     end,
+
+    -- Optional, for templates (see https://github.com/obsidian-nvim/obsidian.nvim/wiki/Using-templates)
+    templates = {
+      folder = 'template',
+      date_format = '%Y-%m-%d',
+      time_format = '%H:%M',
+      -- A map for custom variables, the key should be the variable and the value a function
+      substitutions = {},
+    },
 
     -- Optional, set to true if you use the Obsidian Advanced URI plugin.
     -- https://github.com/Vinzent03/obsidian-advanced-uri
@@ -354,6 +341,12 @@ return {
         path = client:vault_relative_path(path) or path
         return string.format('![%s](%s)', path.name, path)
       end,
+    },
+
+    -- See https://github.com/obsidian-nvim/obsidian.nvim/wiki/Notes-on-configuration#statusline-component
+    statusline = {
+      enabled = true,
+      format = '{{properties}} properties {{backlinks}} backlinks {{words}} words {{chars}} chars',
     },
   },
 }
