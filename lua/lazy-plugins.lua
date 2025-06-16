@@ -34,6 +34,7 @@ require('lazy').setup({
   require 'plugins/lualine',
   -- require 'plugins/marks',
   require 'plugins/bookmarks',
+  require 'plugins/prettier',
   ------------------------------------------------------
   -- Came with Kickstart
   require 'plugins/conform',
