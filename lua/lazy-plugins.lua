@@ -14,6 +14,7 @@ require('lazy').setup({
   -- { import = 'plugins' },
   ------------------------------------------------------
   -- custom plugins
+  require 'plugins/github-line',
   require 'plugins/colorscheme',
   require 'plugins/neo-tree',
   require 'plugins/comment',
