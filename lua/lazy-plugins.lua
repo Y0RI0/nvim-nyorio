@@ -21,7 +21,7 @@ require('lazy').setup({
   require 'plugins/vis-multiline',
   require 'plugins/obsidian',
   require 'plugins/render-markdown',
-  require 'plugins/image',
+  -- require 'plugins/image',
   require 'plugins/harpoon',
   require 'plugins/alpha',
   require 'plugins/undotree',
