@@ -47,7 +47,6 @@ require('lazy').setup({
   require 'plugins/gitsigns',
   require 'plugins/which-key',
   require 'plugins/lspconfig',
-  require 'plugins/ghosttext',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
