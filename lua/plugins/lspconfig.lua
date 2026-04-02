@@ -2,6 +2,7 @@ return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     tag = 'v2.0.0',
+    -- tag = 'main',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants

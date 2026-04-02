@@ -10,11 +10,11 @@ return {
     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
     'BufReadPre '
       .. vim.fn.expand '~'
-      .. '/tomb/md/markdown/work/**.md',
+      .. '/home/yorio/graves/expand-md/**.md',
     -- .. '/nextcloud/markdown/work/**.md',
     'BufNewFile '
       .. vim.fn.expand '~'
-      .. '/tomb/md/markdown/work/**.md',
+      .. '/home/yorio/graves/expand-md/**.md',
     -- 'BufNewFile ' .. vim.fn.expand '~' .. '/nextcloud/markdown/work/**.md', -- MSI laptop
     -- 'BufReadPre /run/media/yorio/tux/nextcloud/markdown/work/**.md',
     -- 'BufNewFile /run/media/yorio/tux/nextcloud/markdown/work/**.md',
@@ -36,53 +36,15 @@ return {
     workspaces = {
       {
         name = 'work',
-        path = vim.fn.expand '~' .. '/tomb/md/markdown/work',
+        path = vim.fn.expand '~' .. '~/graves/expand-md',
       },
-      -- MSI laptop
-      -- {
-      --   name = 'work',
-      --   path = vim.fn.expand '~' .. '/nextcloud/markdown/work',
-      -- },
-      -- Nobara
-      -- {
-      -- name = 'work',
-      -- path = '/run/media/yorio/tux/nextcloud/markdown/work',
-      -- },
-      --[[       {
-+      name = "no-vault",
-+      path = function()
-+        -- alternatively use the CWD:
-+        -- return assert(vim.fn.getcwd())
-+        return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
-+      end,
-+      overrides = {
-+        notes_subdir = vim.NIL,  -- have to use 'vim.NIL' instead of 'nil'
-+        new_notes_location = "current_dir",
-+        templates = {
-+          folder = vim.NIL,
-+        },
-+        disable_frontmatter = true,
-+      }, ]]
     },
-
-    -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
-    -- 'workspaces'. For example:
-    -- dir = "~/vaults/work",
-
-    -- Optional, if you keep notes in a specific subdirectory of your vault.
     notes_subdir = '.',
-
-    -- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
-    -- levels defined by "vim.log.levels.*".
     log_level = vim.log.levels.INFO,
 
-    -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
     completion = {
-      -- Set to false to disable completion.
       nvim_cmp = true,
-      -- Enables completion using blink.cmp
       blink = false,
-      -- Trigger completion at 2 chars.
       min_chars = 3,
     },
 
