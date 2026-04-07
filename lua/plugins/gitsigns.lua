@@ -6,7 +6,7 @@
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
-    tag = 'v0.9.0', -- Error due to JIT compile versions of nvim
+    tag = 'v2.1.0', -- Error due to JIT compile versions of nvim
     opts = {
       signs = {
         add = { text = '+' },

@@ -1,7 +1,7 @@
 return {
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
-    tag = 'v2.0.0',
+    tag = 'v2.7.0',
     -- tag = 'main',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
@@ -21,7 +21,7 @@ return {
       -- disable LSP logging because it starts generating this massive logfile
       -- under /home/<user>/.local/state/nvim/lsp.log
       -- debug should re-enable it, if for some reason I need that
-      vim.lsp.set_log_level 'off'
+      vim.lsp.log.set_level 'off'
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -149,7 +149,6 @@ return {
         -- tsserver = {},
         --
         bashls = {},
-        terraformls = {},
         yamlls = {
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = true
@@ -214,9 +213,9 @@ return {
         automatic_enable = false,
       }
 
-      for server_name, server in pairs(servers) do
-        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        require('lspconfig')[server_name].setup(server)
+      for name, server in pairs(servers) do
+        vim.lsp.config(name, server)
+        vim.lsp.enable(name)
       end
     end,
   },
