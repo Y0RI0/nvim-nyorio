@@ -22,7 +22,6 @@ require('lazy').setup({
   require 'plugins/obsidian',
   require 'plugins/render-markdown',
   -- require 'plugins/image',
-  -- require 'plugins/peek',
   require 'plugins/harpoon',
   require 'plugins/alpha',
   require 'plugins/undotree',
