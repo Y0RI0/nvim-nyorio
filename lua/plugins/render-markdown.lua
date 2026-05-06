@@ -89,7 +89,7 @@ return {
     },
     latex = {
       -- Turn on / off latex rendering.
-      enabled = true,
+      enabled = false,
       -- Additional modes to render latex.
       render_modes = false,
       -- Executable used to convert latex formula to rendered unicode.
